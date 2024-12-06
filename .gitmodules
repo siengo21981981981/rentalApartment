@@ -4,3 +4,6 @@
 [submodule "system"]
   path = system
   url = https://github.com/siengo21981981981/rentalApartment.git
+[submodule "system/rentalApartment"]
+  path = system/rentalApartment
+  url = https://github.com/siengo21981981981/rentalApartment.git
