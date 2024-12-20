@@ -1,7 +1,0 @@
-[submodule "server"]
-  path = server
-  url = https://github.com/siengo21981981981/rentalApartment.git
-[submodule "system"]
-  path = system
-  url = https://github.com/siengo21981981981/rentalApartment.git
-
