@@ -1,0 +1,186 @@
+<div class="upload">
+    <div class="upload__inner">
+        <div class="upload__inner__title">新增租屋</div>
+        <div class="upload__inner__form">
+            <form [formGroup]="uploadForm" (ngSubmit)="submit()">
+                <!-- 房屋基本資訊 -->
+                <fieldset>
+                    <legend>房屋基本資訊</legend>
+                    <div class="form-group">
+                        <label for="title">標題:<span class="required">*</span></label>
+                        <input type="text" id="title" formControlName="title"
+                            [ngClass]="{'is-invalid': issubmit && fc['title'].errors}" />
+                        <div class="error-message" *ngIf="issubmit && fc['title'].errors?.['required']">
+                            請填寫標題
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="city">
+                            城市:<span class="required">*</span>
+                            <p-multiSelect [options]="city" [showHeader]="false" placeholder="城市" formControlName="city"
+                                [ngClass]="{'is-invalid': issubmit && fc['city'].errors}"
+                                (onChange)="changeToggle($event)" [selectionLimit]="1">
+                            </p-multiSelect>
+                        </label>
+                        <div class="error-message" *ngIf="issubmit && fc['city'].errors?.['required']">
+                            請選擇城市
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="district">區域:<span class="required">*</span>
+                            <p-multiSelect [options]="selectedCities" [selectionLimit]="1" formControlName="district" [showHeader]="false"
+                                placeholder="區域" [ngClass]="{'is-invalid': issubmit && fc['district'].errors}">
+                            </p-multiSelect>
+                            <div class="error-message" *ngIf="issubmit && fc['district'].errors?.['required']">
+                                請選擇區域
+                            </div>
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="street_number">街道:<span class="required">*</span></label>
+                        <input type="text" id="street_number" formControlName="street_number"
+                            [ngClass]="{'is-invalid': issubmit && fc['street_number'].errors}" />
+                        <div class="error-message" *ngIf="issubmit && fc['street_number'].errors?.['required']">
+                            請填寫街道資訊
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="floor">樓層:<span class="required">*</span></label>
+                        <input type="number" id="floor" formControlName="floor"
+                            [ngClass]="{'is-invalid': issubmit && fc['floor'].errors}" />
+                        <div class="error-message" *ngIf="issubmit && fc['floor'].errors?.['required']">
+                            請填寫樓層資訊
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="special_features">附近亮點:</label>
+                        <input type="text" id="special_features" formControlName="special_features" />
+                    </div>
+
+                    <!-- 新增房屋類型 -->
+                    <div class="form-group">
+                        <label for="type">房屋類型:<span class="required">*</span></label>
+                        <select id="type" formControlName="type"
+                            [ngClass]="{'is-invalid': issubmit && fc['type'].errors}">
+                            <option value="">請選擇房屋類型</option>
+                            <option value="apartment">公寓</option>
+                            <option value="house">透天</option>
+                            <option value="villa">別墅</option>
+                            <option value="office">辦公室</option>
+                            <option value="studio">套房</option>
+                        </select>
+                        <div class="error-message" *ngIf="issubmit && fc['type'].errors?.['required']">
+                            請選擇房屋類型
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="rent">租金:<span class="required">*</span></label>
+                        <input type="number" id="rent" formControlName="rent" min="1"
+                            [ngClass]="{'is-invalid': issubmit && fc['rent'].errors}" />
+                        <div class="error-message" *ngIf="issubmit && fc['rent'].errors?.['required']">
+                            請輸入有效的租金（大於 0）
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="deposit">押金:</label>
+                        <input type="number" id="deposit" formControlName="deposit" min="0" />
+                    </div>
+                    <div class="form-group">
+                        <label for="area">面積 (平方公尺):<span class="required">*</span></label>
+                        <input type="number" id="area" formControlName="area" min="1"
+                            [ngClass]="{'is-invalid': issubmit && fc['area'].errors}" />
+                        <div class="error-message" *ngIf="issubmit && fc['area'].errors?.['required']">
+                            請輸入有效的面積（大於 0）
+                        </div>
+                    </div>
+                </fieldset>
+                <!-- 周邊環境 -->
+                <fieldset>
+                    <legend>周邊環境</legend>
+                    <div class="form-group">
+                        <label for="nearby_transportation">鄰近交通設施:</label>
+                        <input type="text" id="nearby_transportation" formControlName="nearby_transportation" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nearby_schools">鄰近學校:</label>
+                        <input type="text" id="nearby_schools" formControlName="nearby_schools" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nearby_parks">鄰近公園:</label>
+                        <input type="text" id="nearby_parks" formControlName="nearby_parks" />
+                    </div>
+                    <div class="form-group">
+                        <label for="nearby_markets">鄰近市場或商場:</label>
+                        <input type="text" id="nearby_markets" formControlName="nearby_markets" />
+                    </div>
+                    <div class="form-group">
+                        <label for="map_url">地圖鏈接:<span class="required">*</span></label>
+                        <input type="url" id="map_url" formControlName="map_url"
+                             />
+                       
+                    </div>
+                </fieldset>
+                <!-- 額外設定 -->
+                <fieldset>
+                    <legend>額外設定</legend>
+                    <div class="form-group">
+                        <label for="short_term_rent">是否接受短租:</label>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" id="short_term_yes"
+                                formControlName="short_term_rent" value="true" />
+                            <label for="short_term_yes">是</label>
+                            <input class="form-check-input" type="radio" id="short_term_no"
+                                formControlName="short_term_rent" value="false" />
+                            <label for="short_term_no">否</label>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="parking">是否有停車位:</label>
+                        <select id="parking" formControlName="parking">
+                            <option value="yes">有</option>
+                            <option value="no">無</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="has_window">是否有窗戶:</label>
+                        <select id="has_window" formControlName="has_window">
+                            <option value="yes">有</option>
+                            <option value="no">無</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="images">房屋圖片:<span class="required">*</span></label>
+                        <input type="file" id="images" maxlength="3" (change)="onFileSelected($event)" formControlName="images"
+                            accept=".jpg, .jpeg, .png" multiple />
+                        <div class="error-message" *ngIf="issubmit && fc['images'].errors?.['required']">
+                            請上傳至少一張圖片
+                        </div>
+                    </div>
+
+                </fieldset>
+                <!-- 聯絡資訊 -->
+                <fieldset>
+                    <legend>聯絡資訊</legend>
+                    <div formGroupName="contact_info">
+                        <label for="contact_info">聯絡資訊:<span class="required">*</span></label>
+                        <div class="form-group">
+                            <label for="phone">電話:<span class="required">*</span></label>
+                            <input type="text" id="phone" formControlName="phone"
+                                [ngClass]="{'is-invalid': issubmit && fc['contact_info'].get('phone')?.errors}" />
+                            <div class="error-message" *ngIf="issubmit && fc['contact_info'].get('phone')?.errors?.['required']">
+                                請輸入聯絡電話
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="line_id">LINE ID:</label>
+                            <input type="text" id="line_id" formControlName="line_id" />
+                        </div>
+                    </div>
+                    
+                </fieldset>
+
+                <button type="submit" >提交</button>
+            </form>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="sidebar">
+        <div class="block_sidemenu">
+            <p>後端服務</p>
+        </div>
+        <div class="section">
+            <div class="accordion">帳號管理<span class="pi pi-angle-down" (click)="toggleDropdown('dropdown1')"></span>
+            </div>
+            <div class="panel " *ngIf="dropdowns.dropdown1">
+                <div class="accordion__inner" (click)="changeContent('person-info')">個人資料</div>
+                <div class="accordion__inner" (click)="changeContent('change-password')">修改密碼</div>
+                <div class="accordion__inner" (click)="changeContent('auth-status')">認證狀態</div>
+                <div class="accordion__inner" (click)="changeContent('phone-setting')">電話設定管理</div>
+                <div class="panel__inner" style="display:none;">
+                    <div>- 來電管理</div>
+                    <div>- 來電黑名單</div>
+                    <div>- 來電收藏簿</div>
+                    <div>- 設定保護電話</div>
+                </div>
+            </div>
+            <div class="accordion">即時互動 <span class="pi pi-angle-down" (click)="toggleDropdown('dropdown2')"></span>
+            </div>
+            <div class="panel " *ngIf="dropdowns.dropdown2">
+                <div class="accordion__inner" (click)="changeContent('reserve-list')">我的預約</div>
+                <div class="accordion__inner">互動訊息</div>
+                <div class="panel__inner" style="display:none;">
+                    <div>- 對話紀錄</div>
+                </div>
+            </div>
+            <div class="accordion">追蹤清單<span class="pi pi-angle-down" (click)="toggleDropdown('dropdown3')"></span>
+            </div>
+            <div class="panel " *ngIf="dropdowns.dropdown3">
+                <div class="accordion__inner">出售物件</div>
+                <div class="accordion__inner">出租物件</div>
+                <div class="accordion__inner">新建案物件</div>
+                <div class="accordion__inner">社區清單</div>
+            </div>
+            <div class="accordion">電子報<span class="pi pi-angle-down" (click)="toggleDropdown('dropdown4')"></span></div>
+            <div class="panel " *ngIf="dropdowns.dropdown4">
+                <div class="accordion__inner">訂閱管理</div>
+                <div class="accordion__inner">買屋配對</div>
+                <div class="accordion__inner">租屋配對</div>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="iframe-container" style="margin-top: 20px;">
+            <ng-container *ngComponentOutlet="outletComponent"></ng-container>
+        </div>
+    </div>
+</div>

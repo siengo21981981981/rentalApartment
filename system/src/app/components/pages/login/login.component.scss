@@ -1,0 +1,111 @@
+$primary-color: #ff8c00;
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+.md\\:flex-row {
+  flex-direction: row;
+}
+
+.font-weight-7 {
+  font-weight: 700;
+}
+
+.w-full {
+  width: 100%;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.form {
+  padding: 0.625rem; // 10px
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-content-center {
+  align-content: center;
+}
+
+.gap-2 {
+  gap: 0.5rem; // 8px
+}
+
+.gap-4 {
+  gap: 1.3rem; // 20.8px
+}
+
+.py-5 {
+  padding-top: 1.25rem; // 20px
+  padding-bottom: 1.25rem; // 20px
+}
+
+.w-6rem {
+  width: 6rem; // 96px
+}
+
+.w-12rem {
+  width: 12rem; // 192px
+}
+
+.w-10rem {
+  width: 15rem; // 240px
+}
+
+.hidden {
+  display: none;
+}
+
+.md\\:flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.md\\:hidden {
+  display: none;
+}
+
+.font-2 {
+  font-size: 0.7rem; // 14.4px
+}
+
+.font-color-error {
+  color: red;
+}
+
+button {
+  width: 100rem; // 約等於 1600px
+  height: 5rem; // 約等於 80px
+  background-color: $primary-color;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0.063rem solid $primary-color; // 1px
+  border-radius: 0.313rem; // 5px
+  color: white;
+}
+
+input {
+  border-radius: 0.313rem; // 5px
+  padding: 0.313rem; // 5px
+  border: 0.063rem solid #999; // 1px
+}

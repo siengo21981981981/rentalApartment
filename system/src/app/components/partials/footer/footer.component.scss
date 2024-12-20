@@ -1,0 +1,36 @@
+.footer {
+    font-family: Arial, sans-serif;
+    display: flex;
+    background-color: whitesmoke;
+    justify-content: center;
+    align-items: flex-start; /* 确保所有标题在同一行上对齐 */
+    gap: 40px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.footer div {
+    text-align: left;
+}
+
+.title {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+.subtitle {
+    list-style-type: none; /* 移除前面的点 */
+    padding: 0;
+    margin: 3px 0;
+}
+
+.subtitle-item {
+    font-size: 1em; /* 调整字体大小以适应整体设计 */
+    margin: 5px 0;
+    transition: all 0.2s ease-in-out;
+}
+
+.subtitle-item:hover {
+    color: #ff6363;
+    transition: all 0.2s ease-in-out;
+}

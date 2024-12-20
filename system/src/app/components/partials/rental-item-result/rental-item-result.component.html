@@ -1,0 +1,94 @@
+<div class="search-results-container">
+  <div *ngIf="!isEmptyResult(); else noResult">
+    <!-- 篩選器區域 -->
+    <div #holder class="filter-section" (click)="handleHolderClick($event)">
+      <div class="filter-header">
+        <h2>搜尋結果</h2>
+        <span class="result-count">共 {{result.length}} 筆</span>
+      </div>
+      
+      <div class="sort-buttons">
+        <button class="sort-btn" name="sortTime">
+          <i class="pi pi-clock"></i>
+          更新時間
+          <i class="pi pi-chevron-down"></i>
+        </button>
+        <button class="sort-btn" name="rental">
+          <i class="pi pi-dollar"></i>
+          租金
+          <i class="pi pi-chevron-down"></i>
+        </button>
+        <button class="sort-btn" name="totalSize">
+          <i class="pi pi-chart-bar"></i>
+          坪數
+          <i class="pi pi-chevron-down"></i>
+        </button>
+        <button class="sort-btn" name="click">
+          <i class="pi pi-star"></i>
+          人氣
+          <i class="pi pi-chevron-down"></i>
+        </button>
+      </div>
+    </div>
+    
+    <!-- 房間列表 -->
+    <div class="room-grid">
+      <div class="room-card" *ngFor="let item of result" (click)="detail(item)">
+        <div class="image-wrapper">
+          <div class="tag-new">
+            <i class="pi pi-bookmark"></i>
+            新上架
+          </div>
+          <img [src]="item.images[0]+'.png'" [alt]="item.title">
+          <div class="favorite-btn">
+            <i class="pi pi-heart"></i>
+          </div>
+        </div>
+        
+
+
+        <div class="room-content">
+          <div class="room-header">
+            <h3>{{ item.title }}</h3>
+            <span class="price">NT$ {{ item.rent | number }}</span>
+          </div>
+          
+          <div class="room-details">
+            <div class="detail-item">
+              <i class="pi pi-map-marker"></i>
+              <span>{{ item.street_number }}</span>
+            </div>
+            <div class="detail-item">
+              <i class="pi pi-home"></i>
+              <span>{{ item.area }} 平方米</span>
+            </div>
+            <div class="detail-item">
+              <i class="pi pi-building"></i>
+              <span>{{ item.floor }}樓</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 無結果顯示 -->
+  <ng-template #noResult>
+    <div class="no-results">
+      <div class="filter-section">
+        <div class="filter-header">
+          <h2>搜尋結果</h2>
+        </div>
+        <div class="sort-buttons">
+          <!-- 同上的排序按鈕 -->
+        </div>
+      </div>
+      
+      <div class="empty-state">
+        <i class="pi pi-search"></i>
+        <h3>未找到符合條件的房源</h3>
+        <p>請嘗試調整搜尋條件或關鍵字</p>
+      </div>
+    </div>
+  </ng-template>
+</div>

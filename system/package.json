@@ -1,0 +1,63 @@
+{
+  "name": "rental-apartment",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^17.3.0",
+    "@angular/common": "^17.3.0",
+    "@angular/compiler": "^17.3.0",
+    "@angular/core": "^17.3.0",
+    "@angular/forms": "^17.3.0",
+    "@angular/platform-browser": "^17.3.0",
+    "@angular/platform-browser-dynamic": "^17.3.0",
+    "@angular/platform-server": "^17.3.0",
+    "@angular/router": "^17.3.0",
+    "@angular/ssr": "^17.3.8",
+    "material": "^0.9.15",
+    "mongoose": "^8.5.2",
+    "ngx-slick-carousel": "^17.0.0",
+    "primeicons": "^7.0.0",
+    "primeng": "^17.18.7",
+    "rxjs": "~7.8.0",
+    "slick-carousel": "^1.8.1",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.14.3"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^17.3.8",
+    "@angular/cli": "^17.3.8",
+    "@angular/compiler-cli": "^17.3.0",
+    "@types/jasmine": "~5.1.0",
+    "@types/jquery": "^3.5.30",
+    "@types/node": "^18.18.0",
+    "@types/slick-carousel": "^1.6.40",
+    "jasmine-core": "~5.1.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.2.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.1.0",
+    "node-sass": "^9.0.0",
+    "sass-loader": "^16.0.0",
+    "typescript": "~5.4.2"
+  },
+  "description": "This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siengo48/rentalApartment-pratice-.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/siengo48/rentalApartment-pratice-/issues"
+  },
+  "homepage": "https://github.com/siengo48/rentalApartment-pratice-#readme"
+}

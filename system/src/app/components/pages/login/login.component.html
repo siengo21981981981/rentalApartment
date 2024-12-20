@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="detail flex flex-column">
+        <div *ngIf="type === 'general'">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="flex flex-column align-items-center justify-content-center gap-4 py-5">
+                    <div class="flex flex-wrap justify-content-center align-items-center gap-3">
+                        <div class="flex flex-column">
+                            <input pInputText formControlName="email" type="email" class="w-12rem" placeholder="請輸入你的電子信箱或手機號碼"
+                                [ngClass]="{'is-invalid': isSubmitted && fc['email'].errors}" />
+                            <div *ngIf="isSubmitted && fc['email'].errors" class="invalid-feedback">
+                                <div *ngIf="fc['email'].errors['required']" class="font-2 font-color-error">Email is empty</div>
+                                <div *ngIf="fc['email'].errors['email']" class="font-2 font-color-error">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-content-center align-items-center gap-3">
+                        <div class="flex flex-column">
+                            <input pInputText formControlName="password" type="password" class="w-12rem" placeholder="密碼"
+                                [ngClass]="{'is-invalid': isSubmitted && fc['password'].errors}" />
+                            <div class="invalid-feedback flex flex-column" *ngIf="isSubmitted && fc['password'].errors">
+                                <div *ngIf="fc['password'].errors['required']" class="font-2 font-color-error">Password is empty</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-10rem mx-auto" type="submit"><label>登入</label></button>
+                </div>
+            </form>
+        </div>
+        <div *ngIf="type === 'publisher'">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="flex flex-column align-items-center justify-content-center gap-4 py-5">
+                    <div class="flex flex-wrap justify-content-center align-items-center gap-3">
+                        <div class="flex flex-column">
+                            <input pInputText formControlName="email" type="email" class="w-12rem" placeholder="請輸入你的電子信箱或手機號碼"
+                                [ngClass]="{'is-invalid': isSubmitted && fc['email'].errors}" />
+                            <div *ngIf="isSubmitted && fc['email'].errors" class="invalid-feedback">
+                                <div *ngIf="fc['email'].errors['required']" class="font-2 font-color-error">Email is empty</div>
+                                <div *ngIf="fc['email'].errors['email']" class="font-2 font-color-error">Email must be a valid email address</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-wrap justify-content-center align-items-center gap-3">
+                        <div class="flex flex-column">
+                            <input pInputText formControlName="password" type="password" class="w-12rem" placeholder="密碼"
+                                [ngClass]="{'is-invalid': isSubmitted && fc['password'].errors}" />
+                            <div class="invalid-feedback flex flex-column" *ngIf="isSubmitted && fc['password'].errors">
+                                <div *ngIf="fc['password'].errors['required']" class="font-2 font-color-error">Password is empty</div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="w-10rem mx-auto" type="submit"><label>登入</label></button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

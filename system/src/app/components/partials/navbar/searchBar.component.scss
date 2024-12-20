@@ -1,0 +1,112 @@
+
+.body {
+    position: relative;
+    width: 100%;
+    height: 40vh;
+    margin-top: 0.2rem; // 3.2px (相對於根字體大小)
+    overflow: hidden;
+    margin-bottom: 0.625rem; // 10px
+  }
+  
+  .body img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0.5;
+  }
+  
+  .condition {
+    display: flex;
+    position: relative;
+    z-index: 1001;  /* 確保在 searchBar 上層 */
+}
+  
+  .searchBar {
+    position: absolute;
+    max-width: 30vw;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-90%);
+    z-index: 2;
+    background-color: #d9eaf2; /* 浅蓝色 */
+    padding: 1.25rem; // 20px
+    border-radius: 0.313rem; // 5px
+    color: #333;
+    width: 50%;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1); /* 阴影效果 */
+    z-index: 10;
+  }
+  
+  .inputField {
+    background-color: white; /* 输入框的背景颜色 */
+    border: 0.063rem solid #ccc; // 1px
+    padding: 0.625rem; // 10px
+    border-radius: 0.188rem; // 3px
+    margin-bottom: 0.625rem; // 10px
+    height: 3rem; // 48px
+    width: 100%;
+  }
+  
+  
+  
+  .card {
+    color: #d9eaf2;
+  }
+  
+  button {
+    margin-left: 0.188rem; // 3px
+    height: 12vh; // 128px
+    width: 5vw; // 112px
+    padding: 0.625rem 1.25rem; // 10px 20px
+    background-color: #58c06e;
+    color: white;
+    border: none;
+    border-radius: 0.313rem; // 5px
+    cursor: pointer;
+    align-self: flex-end;
+  }
+  
+  button:hover {
+    background-color: #b1d6b9;
+  }
+  /* 響應式設置 */
+@media (max-width: 1024px) {
+  .search-form {
+    width: 100%;
+    .input-field {
+      background-color: white;
+      border: 0.063rem solid #ccc;
+      padding: 0.625rem;
+      border-radius: 0.188rem;
+      margin-bottom: 0.625rem;
+      height: 3rem;
+      width: 100%;
+    }
+  }
+
+  .input-field,
+  .search-select {
+    width: 100%;
+  }
+
+  .search-select {
+    max-width: none;
+  }
+}
+  
+  @media (max-width: 600px) {
+    .body {
+      height: 35vh;
+    }
+  
+    .searchBar {
+      width: 80%;
+    }
+  
+    button {
+      width: 100%;
+    }
+  }

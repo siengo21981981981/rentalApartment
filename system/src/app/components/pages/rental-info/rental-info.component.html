@@ -1,0 +1,95 @@
+<div class="room-info" *ngIf="roomItem">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="title">
+        <div class="lefttitle">
+            <h2>{{ roomItem.title }}</h2>
+            <p class="address">{{ roomItem.street_number }}</p>
+            <div class="image-container">
+                <span class="tag-hot"><i class="pi pi-trophy">新上架</i></span>
+                <div class="slider-container">
+                    <div class="slider-for">
+                        <div *ngFor="let image of roomItem.images">
+                            
+                            <img [src]="getSafeUrl(image + '.jpg')" alt="房間圖片">
+                        </div>
+                    </div>
+                    <div class="slider-controls">
+                        <button type="button" class="slick-prev">Previous</button>
+                        <button type="button" class="slick-next">Next</button>
+                    </div>
+                </div>
+                <!-- Slider for thumbnails -->
+                <div class="slider-nav-container">
+                    <div class="slider-nav">
+                        <div *ngFor="let image of roomItem.images">
+
+                            <img [src]="getSafeUrl(image + '.jpg')" alt="房間圖片">
+                        </div>
+                    </div>
+                    <div class="slider-nav-controls">
+                        <button type="button" class="slick-nav-prev">Prev</button>
+                        <button type="button" class="slick-nav-next">Next</button>
+                    </div>
+                </div>
+            </div>
+
+
+
+           
+            <body>
+                <!-- 基本資料區塊 -->
+                <h4>基本</h4>
+                <div class="section">
+                    <div class="text-container">
+                        <p><strong>類型:</strong> {{ roomItem.type }}</p>
+                        <p><strong>樓層/樓高:</strong> {{ roomItem.floor }}</p>
+                        <p><strong>法定用途:</strong> {{ roomItem.legal_use }}</p>
+                        <p><strong>朝向:</strong> {{ roomItem.orientation }}</p>
+                        <p><strong>隔間材質:</strong> {{ roomItem.material }}</p>
+                        <p><strong>物件環境:</strong> {{ roomItem.has_window ? '有對外窗' : '無對外窗' }}</p>
+                        <p><strong>產權登記:</strong> {{ roomItem.ownership_registration ? '有' : '無' }}</p>
+                    </div>
+                </div>
+
+                <h4>坪數</h4>
+                <p>{{ roomItem.area }}坪</p>
+
+                <h4>租屋守則</h4>
+                <p><strong>短期租賃:</strong> {{ roomItem.short_term_rent ? '可以' : '不可以' }}</p>
+                <p><strong>押金:</strong> {{ roomItem.deposit }}元</p>
+
+                <h4>車位</h4>
+                <p><strong>車位:</strong> {{ roomItem.parking ? '有' : '無' }}</p>
+                <p><strong>租用:</strong> {{ roomItem.parking_description }}</p>
+
+                <h4>管理</h4>
+                <p><strong>管理方式:</strong> {{ roomItem.management_method ? '保全公司' : '無管理' }}</p>
+                <p><strong>管理費:</strong> {{ roomItem.management_fee ? roomItem.management_fee + '/坪' : '未提供' }}</p>
+
+                <h4>房東提供</h4>
+                <p><strong>設備:</strong> {{ roomItem.equipment }}</p>
+
+                <h4>特色描述</h4>
+                <div class="description">
+                    <p><strong>位置：</strong>內湖科學園區商圈，近家樂福、好市多、IKEA、便利商店，機能佳</p>
+                    <p><strong>交通：</strong>近堤頂大道、環東大道、民權大橋，通勤方便</p>
+                    <p><strong>空間：</strong>樓高3.6公尺、一層一戶、格局方正、隔間辦公規劃容易</p>
+                    <p><strong>其他：</strong>地下停車場可依需求租用、24小時警衛管理安全性高</p>
+                </div>
+
+                <p>～～～～～屋主自租，仲介勿擾～～～～～</p>
+
+                <div class="contact-info">
+                    <p>參觀電話：8792-5225／LINE ID: manbu_floor</p>
+                    <p>想了解更多，歡迎來電、加line預約參觀</p>
+                    <p>因留言容易遺漏訊息，也可直接來電詢問房屋相關資訊或預約看屋，會有專人為您服務。</p>
+                </div>
+            </body>
+        </div>
+        <div class="righttitle">
+            <li class="pi pi-heart">追蹤</li>
+            <div class="right-contain"></div>
+            <app-reserve></app-reserve>
+        </div>
+    </div>
+</div>

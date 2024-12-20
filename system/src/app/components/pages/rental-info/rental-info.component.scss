@@ -1,0 +1,246 @@
+/* 房間信息容器樣式 */
+.room-info {
+  
+  width: 90%;
+  margin: 10px auto;
+  font-family: Arial, sans-serif;
+  line-height: 1.6; /* 增加行高以改善可讀性 */
+  color: #333;
+}
+
+.title {
+  display: flex;
+  justify-content: space-between;
+  
+  gap: 20px; /* 增加元素之間的間距 */
+}
+
+.image-container {
+  position: relative;
+  
+}
+.slider-control{
+  position: absolute;
+  width: 100%;
+  margin:  0 auto;
+}
+.slider-container {
+  position: relative;
+  width: 65vw;
+  margin: 0 auto;
+}
+
+.slick-prev, 
+.slick-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);//垂直置中
+    background: rgba(0, 0, 0, 0.5);
+    height: 30vw;
+    width: 5vw;
+    color: #444;
+    
+    border: none;
+    padding: 10px 15px;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.tag-hot i {
+  position: absolute;
+  padding: 2px 5px;
+  top: 10px;
+  background-color: rgba(255, 99, 99, 0.9);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  z-index: 10;
+}
+
+
+.slick-prev {
+  left: 0;
+}
+
+.slick-next {
+  left: 40vw;
+}
+
+.slick-prev:hover,
+.slick-next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+.slider-for img {
+  width: 45vw;
+  height: 30vw;
+  object-fit: cover;
+  margin-top: 10px;
+ 
+}
+.slider-nav-container {
+  position: relative;
+  width: 65vw;
+  margin: 0 auto;
+}
+.slider-nav-control {
+  position: absolute;
+  width: 100%;
+  margin:  0 auto;
+}
+.slick-nav-prev, 
+.slick-nav-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);//垂直置中
+    background: rgba(0, 0, 0, 0.5);
+    height: 11vh;
+    width: 4vw;
+    color: #444;
+    
+    border: none;
+    
+    cursor: pointer;
+    z-index: 2;
+}
+.slick-nav-prev {
+  left: 0;
+}
+
+.slick-nav-next {
+  left: 41vw;
+}
+
+.slick-nav-prev:hover,
+.slick-nav-next:hover {
+  background: rgba(0, 0, 0, 0.7);
+}
+.details {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.lefttitle {
+  margin-bottom: 10px;
+}
+
+.lefttitle h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.address {
+  color: #666;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+.righttitle {
+ 
+  
+  margin-top: 30px;
+  size: 50vh;
+}
+
+.pi.pi-heart {
+  color: #ff6363;
+  cursor: pointer;
+  transition: color 0.3s ease;
+  margin-left: 10vh;
+  margin-bottom: 1vh;
+}
+
+.price {
+  color: #e63946;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #007bff;
+  text-decoration: underline;
+  font-size: 1rem;
+}
+
+.link:hover {
+  text-decoration: none;
+}
+
+
+/* slider-nav 設置 */
+.slider-nav {
+  max-width: 45vw;
+  margin-bottom: 20px;
+  background-color: #888;
+}
+
+.slider-nav img {
+  width: 20vh;
+  object-fit: cover;
+  height: 10vh;
+  cursor: pointer;
+}
+
+h4 {
+  color: #2c3e50;
+  border-top: 1px solid #A9A9A9;
+  margin-top: 5px;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+}
+
+/* 文字容器樣式 */
+.section {
+  margin-bottom: 20px; /* 調整標題與其他內容之間的間距 */
+}
+
+/* 文字容器使用 Flexbox 來排列文本 */
+.text-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* 調整文本間的間距 */
+}
+
+/* 讓每一段文字有適當的寬度和間距 */
+.text-container p {
+  flex: 1 1 200px; /* 每個段落最小寬度為200px */
+  margin: 0;
+  box-sizing: border-box;
+}
+
+/* 若需要，對每一段文字進行更精細的樣式調整 */
+.text-container p strong {
+  color: #333;
+}
+/* 調整段落的間距 */
+p {
+  margin: 10px 0; /* 增加段落的上下間距 */
+}
+
+.section .leftSection {
+  left: 5vw;
+}
+
+.section .rightSection {
+  right: 5vw;
+}
+
+
+
+.description {
+  display: inline;
+  justify-content: center;
+  margin: 20px 0;
+  padding-top: 10px;
+}
+
+.contact-info {
+  margin-top: 20px;
+}
+
+.contact-info p {
+  margin: 10px 0; /* 增加聯繫信息間距 */
+}

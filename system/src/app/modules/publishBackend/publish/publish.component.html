@@ -1,0 +1,52 @@
+<div class="container">
+    <div class="publish__info">
+        <div class="publish__info__name">
+            {{userInfo?.name}}的刊登物件
+        </div>
+    </div>
+    <div class="publish__content">
+        <p-table [value]="roomInfo" 
+                 [tableStyle]="{ 'min-width': '50rem' }"
+                 [paginator]="true" 
+                 [rows]="5"
+                 [showCurrentPageReport]="true"
+                 responsiveLayout="scroll"
+                 currentPageReportTemplate="第 {first} 到 {last} 筆，共 {totalRecords} 筆"
+                 [rowsPerPageOptions]="[5,10,20]">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>房屋照片</th>
+                    <th>標題</th>
+                    <th>租金</th>
+                    <th>地址</th>
+                    
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-roomInfo>
+                <tr>
+                    <td class="image-cell">
+                        <img [src]="roomInfo.images[0]" alt="房屋照片" class="room-image">
+                    </td>
+                    <td>{{ roomInfo.title }}</td>
+                    <td class="price-cell">NT$ {{ roomInfo.rent | number }}</td>
+                    <td>{{ roomInfo.city }}{{ roomInfo.district }}{{ roomInfo.street_number }}</td>
+                    
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="5" class="empty-message">
+                        <div class="empty-state">
+                            <i class="pi pi-home empty-icon"></i>
+                            <p>目前沒有刊登的物件</p>
+                            <button pButton type="button" 
+                                    label="新增物件" 
+                                    class="p-button-primary"
+                                    routerLink="/upload"></button>
+                        </div>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

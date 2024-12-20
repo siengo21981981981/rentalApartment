@@ -1,0 +1,60 @@
+<div class="wrapper">
+  <div class="detail" *ngIf="type">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="gap-4">
+      <div class=" label font-weight-7">
+        註冊{{ type == 'general' ? '一般會員' : type == 'owner' ? '自租自售' : '營業員/經紀人' }}
+      </div>
+      <div class="gap-3">
+        <!-- 重複的表單控制項 -->
+
+        <div class="flex">
+          <input pInputText formControlName="email" type="email" class="w-12rem"
+            [ngClass]="{'is-invalid': isSubmitted && fc['email'].errors}" placeholder="請輸入你的電子信箱或手機號碼" />
+          <div *ngIf="isSubmitted && fc['email'].errors">
+            <div *ngIf="fc['email'].errors['required']" class="font-2 font-color-error">Email is empty</div>
+            <div *ngIf="fc['email'].errors['email']" class="font-2 font-color-error">Email must be valid</div>
+          </div>
+        </div>
+
+
+        <div class="flex">
+          <input pInputText formControlName="password" type="password" class="w-12rem"
+            [ngClass]="{'is-invalid': isSubmitted && fc['password'].errors}" placeholder="密碼" />
+          <div *ngIf="isSubmitted && fc['password'].errors">
+            <div *ngIf="fc['password'].errors['required']" class="font-2 font-color-error">Password is empty</div>
+            <div *ngIf="fc['password'].errors['minlength']" class="font-2 font-color-error">Password must be at least 6
+              characters</div>
+          </div>
+        </div>
+
+
+        <div class="flex">
+          <input pInputText formControlName="name" type="text" class="w-12rem"
+            [ngClass]="{'is-invalid': isSubmitted && fc['name'].errors}" placeholder="使用者名稱" />
+          <div *ngIf="isSubmitted && fc['name'].errors">
+            <div *ngIf="fc['name'].errors['required']" class="font-2 font-color-error">Name is empty</div>
+          </div>
+        </div>
+
+
+        <div class="flex">
+          <input pInputText formControlName="phone" type="text" class="w-12rem"
+            [ngClass]="{'is-invalid': isSubmitted && fc['phone'].errors}" placeholder="手機電話" />
+          <div *ngIf="isSubmitted && fc['phone'].errors">
+            <div *ngIf="fc['phone'].errors['required']" class="font-2 font-color-error">phone is empty</div>
+          </div>
+        </div>
+
+        <div class="button-container ">
+          <button label="Register" icon="pi pi-user" type="submit">註冊</button>
+        </div>
+
+        <p-dialog header="恭喜註冊成功"  [modal]="true"  [(visible)]="isSuccess"
+          [style]="{ width: '25rem' , height:'auto'}">
+          <h2 class="font-3 font-color-success">註冊成功</h2>
+          <h3 class="font-2 font-color-success">請等前往首頁</h3>
+        </p-dialog>
+      </div>
+    </form>
+  </div>
+</div>

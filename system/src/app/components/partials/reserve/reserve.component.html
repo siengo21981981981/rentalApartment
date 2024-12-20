@@ -1,0 +1,102 @@
+<div id="fast__form-contact" class="block__form-contact">
+    <form [formGroup]="ReserveForm" (ngSubmit)="onSubmit()">
+        <!-- 選擇聯絡方式 -->
+        <div class="r-radio-button__group">
+            <label class="r-radio-button__wrapper">
+                <span class="r-radio-button">
+                    <input type="radio" formControlName="type" value="0" class="r-radio-button__input"
+                        data-default-msg="我對這個物件有興趣，還請協助安排預約看屋時間！" data-btn-text="立即預約" checked>
+                    <span class="r-radio-button__inner">預約看屋</span>
+                </span>
+            </label>
+            <label class="r-radio-button__wrapper">
+                <span class="r-radio-button">
+                    <input type="radio" formControlName="type" value="1" class="r-radio-button__input"
+                        data-default-msg="我對這個物件有興趣，還請找時間回電說明！" data-btn-text="預約回電">
+                    <span class="r-radio-button__inner">回電解說</span>
+                </span>
+            </label>
+
+        </div>
+
+        <!-- 表單內容 -->
+        <div id="reserve" class="tab__content">
+            <!-- 稱呼 -->
+            <div class="r-form__item-control is--required">
+                <div class="r-input__prefix-wrapper">
+                    <span class="r-input__prefix"><i class="pi pi-user"></i></span>
+                    <input type="text" formControlName="name" placeholder="稱呼" class="r-input is--lg" maxlength="25">
+
+                    <div class="r-radio__group">
+                        <label class="r-radio__wrapper">
+                            <span class="r-radio">
+                                <input type="radio" formControlName="salutation" value="0" class="r-radio__input">
+                                <span class="r-radio__inner"></span>
+                            </span>
+                            <span>先生</span>
+                        </label>
+                        <label class="r-radio__wrapper">
+                            <span class="r-radio">
+                                <input type="radio" formControlName="salutation" value="1" class="r-radio__input">
+                                <span class="r-radio__inner"></span>
+                            </span>
+                            <span>小姐</span>
+                        </label>
+                    </div>
+                </div>
+                <div class="error-message" *ngIf="isSubmit && ReserveForm.get('name')?.errors?.['required']">
+                    <small class="text-danger">請輸入稱呼</small>
+                </div>
+            </div>
+
+            <!-- 手機號碼 -->
+            <div class="r-form__item-control is--required">
+                <div class="r-input__prefix-wrapper">
+                    <span class="r-input__prefix"><i class="pi pi-phone"></i></span>
+                    <input type="text" formControlName="phone" placeholder="手機號碼" class="r-input is--lg"
+                        pattern="09\d{8}">
+                </div>
+                <div class="error-message" *ngIf="isSubmit && ReserveForm.get('phone')?.errors">
+                    <small class="text-danger" *ngIf="ReserveForm.get('phone')?.errors?.['required']">請輸入手機號碼</small>
+                    <small class="text-danger" *ngIf="ReserveForm.get('phone')?.errors?.['pattern']">請輸入正確的手機號碼格式</small>
+                </div>
+            </div>
+
+            <!-- Email -->
+            <div class="r-form__item-control">
+                <div class="r-input__prefix-wrapper">
+                    <span class="r-input__prefix"><i class="pi pi-envelope"></i></span>
+                    <input type="email" formControlName="email" placeholder="Email" class="r-input is--lg">
+                </div>
+                <div class="error-message" *ngIf="isSubmit && ReserveForm.get('email')?.errors">
+                    <small class="text-danger" *ngIf="ReserveForm.get('email')?.errors?.['email']">請輸入正確的 Email 格式</small>
+                </div>
+            </div>
+
+            <!-- 訊息 -->
+            <div class="r-form__item-control">
+                <textarea formControlName="message" [placeholder]="message" class="r-input" maxlength="200"></textarea>
+                
+            </div>
+
+            <p>當您送出預約資訊即代表您同意<a href="" target="_blank">相關條款</a>，並允許賣家與您聯繫</p>
+            <div class="r-btn__group">
+                <p-toast key="login"/>
+                <button  type="button" (click)="handleButton()" *ngIf="!this.userInfo"  class="r-btn is--block is--high is--lg">{{btnText}}</button>
+
+            </div>
+            <div class="r-btn__group">
+                <p-toast key="confirm"/>
+                <button *ngIf="this.userInfo" type="submit" class="r-btn is--block is--high is--lg">{{btnText}}</button>
+
+            </div>
+
+
+
+            <div class="r-form__alert">
+                <i class="pi pi-exclamation-circle"></i>
+                <span>提醒您：刊登者以不方便帶看、優先保留看房資格為由，要求先付訂金多為詐騙！請勿上當！</span>
+            </div>
+        </div>
+    </form>
+</div>

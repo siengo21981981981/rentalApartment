@@ -1,0 +1,39 @@
+<div class="container">
+    <form name="personInfoForm" [formGroup]="personInfoForm" (ngSubmit) ="submit()">
+      <div class="form-group">
+        <label>您的身分:</label>
+        <span *ngIf="userType == false">一般會員</span>
+        <span *ngIf="userType == true" style="text-decoration-line: underline; color: blue; cursor: pointer;" [routerLink]="['/publish-Backend']" >刊登會員</span>
+      </div>
+      <div class="form-group">
+        <label>帳號 Email:</label>
+        <span>{{user.email}} (E-mail為您的會員帳號)</span>
+      </div>
+  
+      <div class="form-group">
+        <label><span>*</span> 姓名:</label>
+        <input type="text" name="name" formControlName="username" placeholder="請輸入您的姓名" />
+        <span>(不公開)</span>
+      </div>
+  
+      <div class="form-group">
+        <label><span>*</span> 暱稱:</label>
+        <input type="text" name="username" style="width: 5vw" formControlName="name" placeholder="請輸入您的暱稱" />
+      </div>
+  
+      <div class="form-group">
+        <label>生日:</label>
+        <input type="date" name="birthday" formControlName="birthday" />
+      </div>
+  
+      <div class="form-group">
+        <label>手機號碼:</label>
+        <input type="number" name="phone" formControlName="phone" placeholder="請輸入您的手機號碼" />
+      </div>
+  
+      <div class="btn">
+        <button type="submit">提交資料</button>
+      </div>
+    </form>
+  </div>
+  

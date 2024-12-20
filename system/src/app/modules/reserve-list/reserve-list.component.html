@@ -1,0 +1,121 @@
+<div class="page-container">
+  <div class="content-wrapper">
+    <!-- 頁面標題區塊 -->
+    <header class="page-header">
+      <div class="header-content">
+        <div class="title-section">
+          <h1>我的預約</h1>
+          <p class="subtitle">管理您的所有預約請求</p>
+        </div>
+        <div class="search-section">
+          <div class="search-box">
+            <i class="pi pi-search"></i>
+            <input type="text" #searchInput (input)="searchReservations(searchInput.value)" placeholder="搜尋預約信件..." />
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 預約列表區塊 -->
+    <main class="reservation-list">
+      <div class="list-container">
+        <!-- 預約卡片 -->
+        <div class="reservation-card" *ngFor="let item of searchItem">
+          <article class="card-content" (click)="openDialog(item)">
+            <!-- 狀態標籤 -->
+            <div class="status-badge new">新請求</div>
+
+            <!-- 卡片主要內容 -->
+            <div class="card-main">
+              <div class="card-header">
+                <div class="landlord-info">
+                  <div class="avatar">
+                    <i class="pi pi-user"></i>
+                  </div>
+                  <div class="info">
+                    <h3 class="name">{{ getLandlordName(item) }}</h3>
+                    <time class="time">
+                      <i class="pi pi-calendar"></i>
+                      {{ item.reservationtime | date: 'yyyy/MM/dd HH:mm' }}
+                    </time>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-body">
+                <h4 class="property-title">{{ item.room_title }}</h4>
+                <p class="message">{{ item.message }}</p>
+              </div>
+
+              <div class="card-footer">
+                <div class="contact-info">
+                  <i class="pi pi-phone"></i>
+                  <span>{{ getLandlordPhone(item) }}</span>
+                </div>
+                <button class="view-details">
+                  查看詳情
+                  <i class="pi pi-arrow-right"></i>
+                </button>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <!-- 無資料顯示 -->
+      <div class="empty-state" *ngIf="searchItem.length === 0">
+        <div class="empty-content">
+          <i class="pi pi-inbox"></i>
+          <h3>暫無預約</h3>
+          <p>目前沒有任何預約信件</p>
+        </div>
+      </div>
+    </main>
+  </div>
+</div>
+
+<!-- 詳細資訊對話框 -->
+<p-dialog 
+  [(visible)]="isDialogVisible"
+  [header]="selectedItem?.room_title || '預約詳情'"
+  [modal]="true"
+  [draggable]="false"
+  [closable]="true"
+  [resizable]="false"
+  [closeOnEscape]="true"
+  [dismissableMask]="true"
+  (onHide)="closeDialog()"
+  styleClass="reservation-dialog"
+>
+  <div class="dialog-content" *ngIf="selectedItem">
+    <div class="property-info">
+      <h2>{{selectedItem.room_title}}</h2>
+      <div class="reservation-time">
+        預約時間：{{ selectedItem.reservationtime | date: 'yyyy/MM/dd HH:mm' }}
+      </div>
+    </div>
+
+    <div class="message-section">
+      <h3>預約訊息</h3>
+      <p>{{ selectedItem.message }}</p>
+    </div>
+
+    <div class="landlord-section">
+      <h3>房東資訊</h3>
+      <div class="info-grid">
+        <div class="info-item">
+          <i class="pi pi-user"></i>
+          <span>{{ getLandlordName(selectedItem) }}</span>
+        </div>
+        <div class="info-item">
+          <i class="pi pi-phone"></i>
+          <span>{{ getLandlordPhone(selectedItem) }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="property-image">
+      <img [src]="(getLandlordImg(selectedItem))+'.png'" alt="房間圖片">
+    </div>
+  </div>
+</p-dialog>

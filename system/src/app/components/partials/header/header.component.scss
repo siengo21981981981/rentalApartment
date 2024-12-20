@@ -1,0 +1,245 @@
+$primary-color: #ff8c00;
+
+.nav-header {
+
+    display: flex;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 10vh;
+    margin: 0;
+    font-family: 'Verdana', sans-serif;
+    .nav-brand{
+        margin: 5px;
+    }
+}
+
+.fa-bars {
+
+    color: #ff6363;
+    float: right;
+    padding: 20px;
+    position: fixed;
+    right: 0;
+    z-index: 500;
+    border-radius: 5px;
+   
+    cursor: pointer;
+}
+
+.header-links {
+
+    width: 95%;
+    z-index: 500;
+}
+
+.header-links li {
+
+    display: inline; //同一排
+    float: right;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.dropdown-toggle {
+    border: none;
+    background: none;
+}
+
+.dropdown {
+    position: relative;
+
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        display: flex;
+        flex-direction: column; // 垂直排列
+        background-color: white;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 8px 0;
+        width: 150px;
+        li:hover{
+            color: #ff6363;
+        }
+        li:active{
+            color: #f5f5f5;
+        }
+        .dropdown-item {
+            padding: 10px 15px;
+            cursor: context-menu;
+            text-align: left;
+
+            &:hover {
+                background-color: #f5f5f5;
+            }
+        }
+    }
+}
+
+.header-links a {
+
+    display: inline; //同一排
+    float: right;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.header-links a {
+    color: black;
+    transition: all 0.1s ease-in-out;
+    text-decoration: none;
+
+}
+
+.header-links a:hover {
+    text-decoration: underline;
+    text-decoration-color: #ff6363;
+    text-decoration-thickness: 2px;
+}
+
+.header-links i {
+    color: black;
+    transition: all 0.2s ease-in-out;
+
+
+}
+
+.header-links i:hover {
+
+    color: #ff6363;
+}
+
+.modal-sign {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+}
+
+.chooseRegister {
+    display: grid;
+    justify-items: center;
+
+    align-items: center;
+    gap: 20px;
+
+    .item-member {
+        border-radius: 5px;
+        border: solid 1px black;
+        width: 100%;
+        text-decoration: none;
+        padding: 10px;
+    }
+
+    .member-id-1 { 
+        color: green
+    }
+
+    .member-id-1.item-member:hover {
+        border: solid 2px green;
+    }
+
+    .member-id-2 {
+        color: darkblue
+    }
+
+    .member-id-2.item-member:hover {
+        border: solid 2px darkblue;
+    }
+
+    .member-id-3 {
+        color: red
+    }
+
+    .member-id-3.item-member:hover {
+        border: solid 2px red;
+    }
+
+    .item-member-title {
+        width: 100%;
+        border-bottom: 1px solid black;
+        display: flex;
+        justify-content: center;
+        margin-bottom: 5px;
+
+    }
+
+    .item-member-id {
+        color: black;
+    }
+
+
+}
+
+.chooseLogin {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #ddd;
+}
+
+.radio-button__wrapper {
+    cursor: pointer;
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #777;
+    border-bottom: 2px solid transparent;
+    transition: border-bottom-color 0.3s ease;
+}
+
+.radio-button__wrapper.active,
+.radio-button__wrapper:hover {
+    color: #000;
+    border-bottom-color: #FF7F00;
+}
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.login-form input {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    width: 100%;
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #FF7F00;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+.social-login {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.social-login button {
+    padding: 10px;
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+
+
+a {
+    color: #FF7F00;
+    text-decoration: none;
+}

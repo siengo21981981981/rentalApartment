@@ -1,0 +1,79 @@
+.profile {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 20vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+
+
+    .profile__info {
+        margin: 10px;
+
+
+        .profile__info__name {
+            font-size: 1.8rem;
+            font-weight: bold;
+
+        }
+
+        .profile__info__email {
+            font-size: 1rem;
+
+        }
+    }
+}
+
+.dashboard {
+    .card--row {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        padding-top: 10px;
+
+        .card {
+
+            width: 48%;
+            height: 150px;
+            background-color: #f5f5f5;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+            /* 卡片的陰影 */
+        }
+    }
+
+    .collapse-card {
+        margin-bottom: 1rem;
+
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        height: 30vh;
+        .collapse-card_header {
+            display: flex;
+            justify-content: space-between;
+            background-color: #eaeaea;
+            padding: 0.5rem;
+            border-radius: 5px 5px 0 0;
+
+            .collapse-card_header__title {
+                font-size: 1rem;
+                font-weight: bold;
+                color: #333;
+            }
+
+            .r-btn {
+                background-color: #fff;
+                padding: 0.5rem 0.9rem 0.5rem;
+                border: 1px solid #ccc;
+                border-radius: 5px;
+                font-size: 0.7rem;
+            }
+        }
+        .collapse-card_body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            .obj{
+                font-size: 0.8rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,38 @@
+<div #holder id="holder" class="filter">
+    <h5>所有物件</h5>
+    <ul class="dropdown-menu">
+        
+        <button for="ex1_2" class="sortBtn " name="sortTime">
+            更新時間 <i class="arrow-icon down"></i>
+        </button>
+        <button for="ex1_3" class="sortBtn" name="rental">
+            租金 <i class="arrow-icon down"></i>
+        </button>
+        <button for="ex1_4" class="sortBtn" name="totalSize">
+            可使用坪數 <i class="arrow-icon down"></i>
+        </button>
+        <button for="ex1_5" class="sortBtn" name="click">
+            人氣 <i class="arrow-icon down"></i>
+        </button>
+    </ul>
+</div>
+
+<div class="room-info" *ngFor="let item of room" (click)="detail(item)">
+    <div class="image-container">
+        <span class="tag-hot"><i class="pi pi-trophy">新上架 </i></span>
+        
+        <img [src]="(item.images[0] + '.png')" alt="房間圖片">
+    </div>
+    <div class="details">
+        <div class="lefttitle">
+            <h2>{{ item.title }}</h2>
+            <p class="address">{{ item.street_number }}</p>
+            <p>{{ item.area }} 平方米</p>
+            <p>{{ item.floor }}</p>
+        </div>
+        <div class="righttitle">
+            <li class="pi pi-heart">追蹤</li>
+            <p class="price">{{ item.rent }} 元</p>
+        </div>
+    </div>
+</div>

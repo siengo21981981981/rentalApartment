@@ -1,0 +1,40 @@
+<div class="body">
+    <img src="assets/images/vector-city-urban-cityscape-illustration-building-town-modern-skyline-skyscraper-backgroun_1013341-15904.png"
+        alt="Background Image">
+    <div class="searchBar">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()" class="search-form">
+            <div class="condition">
+                <div>
+                    <input #s type="text" placeholder="請輸入街道、社區、學校關鍵字" class="inputField" formControlName="searchBar">
+                    
+                    <p-treeSelect containerStyleClass="'z-index': '100'" class="search-select"  [containerStyle]="{
+                                    'max-width': '10vw',
+                                    'margin-bottom': '10px',
+                                    'border-radius': '0',
+                                    'height': '5vh',
+                                    'font-size': '0.8rem',
+                                    'position': 'relative',
+                                    
+                                    }" 
+                                     appendTo="body"
+                                    [options]="city" selectionMode="multiple" [metaKeySelection]="false"
+                        placeholder="區域" formControlName="searchCity">
+                    </p-treeSelect>
+                
+                    <p-multiSelect [options]="type" formControlName="searchType"
+                        [style]="{'max-width': '10vw' ,'font-size': '0.8rem', 'height': '5vh', 'border-radius':'0'}"
+                        [showHeader]="false" placeholder="類型" appendTo="body">
+                    </p-multiSelect>
+
+                    <p-multiSelect [options]="price" formControlName="searchPrice"
+                        [style]="{'max-width': '10vw' ,  'font-size': '0.8rem','height': '5vh','border-radius':'0'}"
+                        [showHeader]="false" placeholder="價格" appendTo="body">
+                    </p-multiSelect>
+                </div>
+                <div class="onSubmit">
+                    <button type="submit">搜尋</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

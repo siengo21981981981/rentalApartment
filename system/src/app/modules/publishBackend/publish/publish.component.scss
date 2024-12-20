@@ -1,0 +1,151 @@
+.container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.publish {
+    &__info {
+        margin-bottom: 2rem;
+        padding-bottom: 1rem;
+        border-bottom: 2px solid #f0f2f5;
+
+        &__name {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            position: relative;
+            padding-left: 1rem;
+
+            &:before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 4px;
+                height: 24px;
+                background: #3498db;
+                border-radius: 2px;
+            }
+        }
+    }
+
+    &__content {
+        // PrimeNG Table 樣式覆蓋
+        ::ng-deep {
+            .p-datatable {
+                .p-datatable-header {
+                    background: #f8fafc;
+                    border: none;
+                    padding: 1rem;
+                }
+
+                .p-datatable-thead > tr > th {
+                    background: #f8fafc;
+                    color: #2c3e50;
+                    padding: 1rem;
+                    border: none;
+                    font-weight: 600;
+                }
+
+                .p-datatable-tbody > tr {
+                    transition: background-color 0.3s;
+
+                    &:hover {
+                        background-color: #f8fafc;
+                    }
+
+                    > td {
+                        padding: 1rem;
+                        border: none;
+                        border-bottom: 1px solid #f0f2f5;
+                    }
+                }
+
+                .p-paginator {
+                    background: transparent;
+                    border: none;
+                    padding: 1rem 0;
+                }
+            }
+        }
+    }
+}
+
+// 自定義單元格樣式
+.image-cell {
+    width: 120px;
+    padding: 0.5rem !important;
+
+    .room-image {
+        width: 100px;
+        height: 75px;
+        object-fit: cover;
+        border-radius: 8px;
+    }
+}
+
+.price-cell {
+    font-weight: 600;
+    color: #e67e22;
+}
+
+.action-cell {
+    width: 100px;
+    text-align: center;
+
+    button {
+        margin: 0 0.25rem;
+    }
+}
+
+// 空狀態樣式
+.empty-state {
+    padding: 3rem 1rem;
+    text-align: center;
+
+    .empty-icon {
+        font-size: 3rem;
+        color: #bdc3c7;
+        margin-bottom: 1rem;
+    }
+
+    p {
+        color: #7f8c8d;
+        margin-bottom: 1.5rem;
+    }
+
+    button {
+        font-weight: 500;
+    }
+}
+
+// 響應式設計
+@media (max-width: 768px) {
+    .container {
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    .publish__info__name {
+        font-size: 1.5rem;
+    }
+
+    .image-cell {
+        width: 80px;
+
+        .room-image {
+            width: 70px;
+            height: 52px;
+        }
+    }
+
+    .action-cell {
+        width: 80px;
+    }
+}
+  

@@ -1,0 +1,51 @@
+<div class="body">
+
+    <div class="searchBar">
+        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+
+
+
+
+            <!-- p-treeSelect不能用style修改 -->
+            <p-treeSelect class="search-select" [containerStyle]="{
+                    'direction': 'row',
+                    
+                    
+                    'max-width': '15vw',
+                    'margin-top': '20px',
+                    'margin-bottom': '10px',
+                    'height': '3rem',
+                    'border': 'none'
+                }" [options]="city" selectionMode="multiple" [metaKeySelection]="false" placeholder="區域"
+                formControlName="searchCity" appendTo="body" display="comma"></p-treeSelect>
+
+            <p-multiSelect [options]="type" formControlName="searchType"
+                [style]="{ 'margin-bottom':'10px','max-width': '15vw',  'height':'3rem','border':'none','appearance': 'none','font-size':'0.9rem'}"
+                [showHeader]="false" placeholder="類型" [group]="" appendTo="body" />
+
+
+            <p-multiSelect [options]="price" formControlName="searchPrice"
+                [style]="{ 'margin-bottom':'10px','max-width': '15vw',  'height':'3rem','border':'none','appearance': 'none','font-size':'0.9rem'}"
+                [showHeader]="false" placeholder="價格" appendTo="body" />
+
+            <!-- <p-multiSelect [options]="room" formControlName="searchRoom"
+                [style]="{ 'margin-bottom':'10px','max-width': '10vw',  'height':'3rem','border':'none','appearance': 'none','font-size':'0.9rem'}"
+                [showHeader]="false" placeholder="房型" appendTo="body" />
+
+            <p-multiSelect [options]="floor"  formControlName="searchFloor"
+                [style]="{ 'margin-bottom':'10px','max-width': '10vw',  'height':'3rem','border':'none','appearance': 'none','font-size':'0.9rem'}"
+                [showHeader]="false" placeholder="樓層" appendTo="body" /> -->
+            <input #s type="text" placeholder="請輸入街道、社區、學校關鍵字" class="inputField" formControlName="searchBar"
+                [style]="{ 'margin-bottom':'10px',  'height':'3rem','appearance': 'none','font-size':'0.9rem'}" />
+
+
+
+            <button class="searchBtn" type="submit">搜尋</button>
+        </form>
+    </div>
+</div>
+<div *ngIf="'result!=[]'">
+    <app-rental-itemm-result [result]="resultItem"></app-rental-itemm-result>
+</div>
+
+<app-rental-item></app-rental-item>

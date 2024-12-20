@@ -1,0 +1,90 @@
+<div class="nav-header">
+  <div class="nav-brand">
+    <img src="assets/images/rent_511099.png" class="Logo" (click)="home()"   width="50vh" >
+  </div>
+  <i class="fa-bars"></i>
+  <div class="header-links " *ngIf="!userInfo.token">
+    <ul>
+      <li><i class="pi pi-bell"></i></li>
+      <li>
+        <a (click)="showDialogLogin()" [ngStyle]="{'color': 'black'}">
+          登入
+        </a>
+        <p-dialog [modal]="true" [(visible)]="showLogin" [style]="{ width: '25rem' , height:'auto'}">
+          <div class="modal-sign">
+            <h3>會員登入</h3>
+            <div class="chooseLogin">
+              <label class="radio-button__wrapper" [ngClass]="{'active': activeTab === 'general'}"
+                (click)="activeTab = 'general'">
+                一般會員
+              </label>
+              <label class="radio-button__wrapper" [ngClass]="{'active': activeTab === 'publisher'}"
+                (click)="activeTab = 'publisher'">
+                刊登會員
+              </label>
+            </div>
+            <div class="modal-content">
+              <app-login [type]="activeTab"></app-login>
+            </div>
+          </div>
+        </p-dialog>
+      </li>
+      <li>
+        <a (click)="showDialogRegister()" [ngStyle]="{'color': 'black'}">
+          註冊
+        </a>
+      </li>
+      <li><a (click)="showDialogLogin()">刊登</a></li>
+      <li><a routerLink="rent">租屋</a></li>
+    </ul>
+  </div>
+  <div class="header-links" *ngIf="userInfo.token">
+    
+    <li><a routerLink="publish-Backend">刊登</a></li>
+    <li><a routerLink="rent">租屋</a></li>
+    <ul>
+      <li class="dropdown">
+        <button class="dropdown-toggle" (click)="toggleDropdown($event)" [ngClass]="{ 'active': isDropdownOpen }">
+          <i class="pi pi-angle-down"></i>
+        </button>
+        <ul *ngIf="isDropdownOpen" class="dropdown-menu">
+          <li (click)="viewProfile()">個人資料</li>
+          <li (click)="logout()">登出</li>
+        </ul>
+      </li>
+    </ul>
+    <li>
+      <i class="pi pi-user"></i> {{ userInfo.name }}
+    </li>
+    
+  </div>
+  
+</div>
+
+<!-- 註冊對話框 -->
+<p-dialog [modal]="true" [(visible)]="showRegister" [style]="{ width: '25rem' }">
+  <div class="modal-sign">
+    <h3>選擇會員身分</h3>
+    <div class="chooseRegister">
+      <a (click)="showDialog('general')" class="item-member member-id-1">
+        <span class="item-member-title">一般會員</span>
+        <span class="item-member-id">買屋、租屋、求租、設計師</span>
+      </a>
+      <a (click)="showDialog('owner')" class="item-member member-id-2">
+        <span class="item-member-title">自租自售</span>
+        <span class="item-member-id">屋主本人或親友自行出租出售</span>
+      </a>
+      <a (click)="showDialog('agent')" class="item-member member-id-3">
+        <span class="item-member-title">營業員/經紀人</span>
+        <span class="item-member-id">仲介、代理人、店家、建商、廣告公司、代銷</span>
+      </a>
+    </div>
+  </div>
+</p-dialog>
+
+<!-- 註冊表單對話框 -->
+<p-dialog [(visible)]="visible" [modal]="true" [style]="{ width: '25rem', height: '30rem' }">
+  <div class="modal-content">
+    <app-register [type]="formId"></app-register>
+  </div>
+</p-dialog>

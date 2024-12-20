@@ -1,0 +1,232 @@
+$primary-color: #ff8c00;
+$text-color: #333;
+$background-color: #fff;
+$border-radius: 5px;
+$input-padding: 10px;
+$font-family: Arial, sans-serif;
+
+body {
+    font-family: $font-family;
+    background-color: #f5f5f5;
+    
+}
+.r-form__item-control {
+    &.is--required {
+        .r-input__prefix-wrapper {
+            .r-input {
+                &.ng-invalid.ng-touched {
+                    border-color: red;
+                }
+            }
+        }
+    }
+}
+
+.ng-invalid.ng-touched {
+    border-color: red;
+}
+.error-message {
+    margin-top: 3px;
+    
+    .text-danger {
+        color: #dc3545;
+        font-size: 12px;
+    }
+}
+.form-error {
+    color: red;
+    font-size: 0.8em;
+    margin-top: 5px;
+}
+.block__form-contact {
+    margin-top: 4vh;
+    min-width: 20vw;
+    
+    width: 100%;
+    font-size: clamp(10px, 2vw, 8px);
+    height: 50vh;
+    
+    border-radius: $border-radius;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+
+    .r-radio-button__group {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+        
+        .r-radio-button__wrapper {
+            padding: 0 10px;
+            font-size: medium;
+            width: 50%;
+            height: 5vh;
+            text-align: center;
+            color: lighten($primary-color, 10%);;
+            background-color: white;
+            
+
+            .r-radio-button__inner {
+                font-size: 1em;
+                
+            }
+            input[type="radio"]{
+                display: none;
+            }
+            
+
+            .r-radio-button__input:checked + .r-radio-button__inner  {
+                color:  white;
+                
+                
+            }
+            
+        }
+        .r-radio-button__wrapper.active {
+            background-color: lighten($primary-color, 10%);
+        }
+    }
+
+    .tab__content {
+        padding:0 10px;
+        
+        .r-form__item-control {
+            margin-bottom: 15px;
+
+            .r-input__prefix-wrapper {
+                position: relative;
+                display: flex;
+                align-items: center;
+
+                .r-input__prefix {
+                    position: absolute;
+                    left: 10px;
+                    font-size: 1em;
+                    color: #999;
+                }
+
+                .r-input {
+                    width: 100%;
+                    padding: $input-padding;
+                    padding-left: 40px;
+                    border: 1px solid #ddd;
+                    border-radius: $border-radius;
+                    outline: none;
+                    font-size: 1em;
+                    background-color: #fafafa;
+
+                    &.is--lg {
+                        height: 40px;
+                    }
+                }
+
+                .r-radio__group {
+                    position: absolute;
+                    right: 5px;
+                    margin-left: auto;
+                    display: flex;
+                    align-items: center;
+
+                    label {
+                        margin-left: 10px;
+                        display: flex;
+                        align-items: center;
+                        cursor: pointer;
+
+                        .r-radio {
+                            position: relative;
+                            margin-right: 5px;
+
+                            input[type="radio"] {
+                                display: none;
+                            }
+
+                            &__inner {
+                                width: 16px;
+                                height: 16px;
+                                border: 2px solid #999;
+                                border-radius: 50%;
+                                display: inline-block;
+                                position: relative;
+
+                                &:after {
+                                    content: '';
+                                    width: 10px;
+                                    height: 10px;
+                                    background-color: $primary-color;
+                                    border-radius: 50%;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    opacity: 0;
+                                }
+                            }
+                            
+                            input[type="radio"]:checked + .r-radio__inner:after {
+                                opacity: 1;
+                            }
+                        }
+                    }
+                    
+                }
+            }
+        }
+
+        textarea {
+            resize: none;
+            padding: $input-padding;
+            border: 1px solid #ddd;
+            border-radius: $border-radius;
+            font-size: 1em;
+            width: 100%;
+            background-color: #fafafa;
+        }
+
+        .r-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: $primary-color;
+            color: white;
+            font-size: 1em;
+            border: none;
+            border-radius: $border-radius;
+            cursor: pointer;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .r-btn:hover{
+            background-color: #d3af83;
+        }
+        .r-form__alert {
+            margin-top: 20px;
+            color: red;
+            display: flex;
+            align-items: center;
+
+            i {
+                margin-right: 5px;
+                color: red;
+                font-size: 1.2em;
+            }
+
+            span {
+                font-size: 0.9em;
+            }
+        }
+
+        p {
+            margin-top: 10px;
+            font-size: 0.9em;
+            text-align: center;
+
+            a {
+                color: $primary-color;
+                text-decoration: none;
+
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
+    }
+}
+
