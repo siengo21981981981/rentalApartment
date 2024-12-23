@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "cd src && nodemon server.ts"
-    "build": "npm start"
+    "build": "tsc"
   },
   "repository": {
     "type": "git",
