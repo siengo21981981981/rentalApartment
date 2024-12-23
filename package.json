@@ -8,7 +8,8 @@
   "description": "&nbsp;提供房東與租客的線上媒合平台 簡化租房流程，     提高房源資訊透明度 建立標準化的租賃管理制度    ### 2.系統架構    1. 前端Angular 框架    2. 端Node.js + Express   3. 資料庫MongoDB 身份驗證JWT Token ## 2.模組功能說明   ### 用戶管理模組   - 房東/租客註冊登入   - 個人資料管理   ### 房源管理模組    - 房源發布與編輯    - 房源搜尋與篩選    - 房源詳情展示   收藏功能   ### 租賃管理模組    - 預約看房    - 租賃申請    - 合約管理(未完成)    - 租金繳付紀錄(未完成) ## 3.操作流程   ## 先在首頁搜索   ![image](https://github.com/user-attachments/assets/3eb6231b-d899-41bf-92d3-9a695e093cb6)   ## 登入   ### 選擇註冊身分   ![image](https://github.com/user-attachments/assets/ef4e8747-7db1-4fcd-b556-a34a67ae49ea)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "build:server": "npm --prefix server run build",
+  "build:system": "npm --prefix system run build"
   },
   "keywords": [],
   "author": "",
