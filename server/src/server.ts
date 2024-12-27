@@ -6,19 +6,19 @@ import userRouter from "./routers/user";
 import reserveRouter from './routers/reserve';
 import crypto from "crypto";
 import { GridFsStorage } from "multer-gridfs-storage";
+import path from "path";
+
 dbConnect();
 const app = express();
-const port = "3000";
+const port = process.env.PORT || 3000;
 
 const corsOptions = {
-  origin: "http://localhost:4200",
+  origin: "https://rentalapartments.pages.dev", // 替換為您的 Cloudflare Pages 網站 URL
   optionsSuccessStatus: 204,
-  metends: "GET,POST,PUT,DELETE",
+  methods: "GET,POST,PUT,DELETE",
 };
 
-const path = require("path");
-
-var storage = new GridFsStorage({
+const storage = new GridFsStorage({
   url: process.env.MONGODB_URL!,
   file: (req: any, file: { originalname: any }) => {
     return new Promise((resolve, reject) => {
@@ -40,11 +40,10 @@ var storage = new GridFsStorage({
 app.use(cors(corsOptions));
 app.use(express.json());
 
-// Image retrieval route using GridFS
-
 app.use("/api/roomInfo", roomInfoRouter);
 app.use("/api/user", userRouter);
 app.use("/api/reserve", reserveRouter);
+
 app.listen(port, () => {
   console.log(`Server listening at http://localhost:${port}`);
 });
