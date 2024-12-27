@@ -41,6 +41,6 @@
     "@types/multer": "^1.4.12",
     "nodemon": "^3.1.4",
     "ts-node": "^10.9.2",
-    "typescript"
+    "typescript":"^5.7.2"
   }
 }
