@@ -1,7 +1,7 @@
 import { environment } from "../../../envirments/environment";
 
 
-export const BASE_URL = environment.production ? ' ' : 'http://localhost:3000/api';
+export const BASE_URL = environment.BASE_URL;
 // roomInfo
 export const ROOMINFO_URL = BASE_URL + '/roomInfo/';
 export const ROOMINFOGET_URL = BASE_URL + '/roomInfo/get';
